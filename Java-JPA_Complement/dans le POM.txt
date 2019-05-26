@@ -1,0 +1,25 @@
+    <!-- connecteur à la DB ici spécifique à MySQL (indispensable au JDBC et JPA) -->
+    <dependency>
+    	<groupId>mysql</groupId>
+    	<artifactId>mysql-connector-java</artifactId>
+    	<version>5.1.9</version>
+    </dependency>
+
+    <!-- ajoute les dépendances de JPA (annotations, EntityManager, ... ) -->
+    <dependency>
+    	<groupId>org.hibernate</groupId>
+    	<artifactId>hibernate-java8</artifactId>
+    	<version>5.0.1.Final</version>
+    </dependency>
+    <dependency>
+    	<groupId>org.hibernate</groupId>
+    	<artifactId>hibernate-core</artifactId>
+    	<version>5.0.1.Final</version>
+    </dependency>
+    <dependency>
+    	<groupId>org.hibernate</groupId>
+    	<artifactId>hibernate-entitymanager</artifactId>
+    	<version>5.0.1.Final</version>
+    </dependency>
+    
+</dependencies>

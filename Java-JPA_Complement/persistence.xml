@@ -1,0 +1,48 @@
+<!-- Ce fichier persistence.xml est à placer dans le dossier src/main/resources/META-INF/ du projet-->
+
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
+	version="2.1">
+	<persistence-unit name="pu_ex-jpa" transaction-type="RESOURCE_LOCAL">
+		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+		<properties>
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/biblio" />
+			<property name="javax.persistence.jdbc.user" value="root" />
+			<property name="javax.persistence.jdbc.password" value="" />
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+			<property name="hibernate.show_sql" value="true" />
+		</properties>
+	</persistence-unit>
+	
+	<persistence-unit name="pu_ex2-jpa" transaction-type="RESOURCE_LOCAL">
+		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+		<!-- ajouter les classes à persister si désactivation de la propriété hibernate.archive.autodetection -->
+		<class>dev.banque.model.Banque</class>
+		<class>dev.banque.model.Client</class>
+		<class>dev.banque.model.Compte</class>
+		
+		<properties>
+			<!-- désactive l'autodétection des classes @Entity et ne s'occupe que de celles indiquées dans <class>... -->
+			<property name="hibernate.archive.autodetection" value="" />
+			
+			<!-- Activation de la génération des tables manquantes uniquement -->
+			<property name="hibernate.hbm2ddL.auto" value="update" />
+			
+			<!-- Drop and create à chaque redémarage -->
+			<property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
+			
+			<!-- Affichage des requetes SQL -->
+			<property name="hibernate.show_sql" value="true" />
+			
+			<!-- Paramètres d'accés à la DB -->
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/banquedb" />
+			<property name="javax.persistence.jdbc.user" value="root" />
+			<property name="javax.persistence.jdbc.password" value="" />
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+			
+		</properties>
+	</persistence-unit>
+</persistence>
