@@ -1,0 +1,85 @@
+	JAVA
+
+
+String.format(   ,   )
+
+Code	Type					Resultat
+%a 	nb réel (except BigDecimal) 	valeur hexadecimale d'un nb réel
+%b 	Any type 			“true” si non-null, “false” sinon
+%c 	character 			caractère Unicode
+%d 	nb entier (inclu bigint) 	valeur du nb entier
+%e 	nb réel			 	nb en notation scientifique
+%f 	nb réel 			valeur du nb réel
+%g 	nb réel 			nb réel ou notation scientifique selonla valeur
+%h 	tous types 			Hex String of value from hashCode() method.
+%n 	/			 	retour à la ligne
+%o 	nb entier		 	valeur octale
+%s 	tous types		 	string
+%S	tous types			String en Uppercase
+%t 	Date/Time (long, Calendar, Date and TemporalAccessor) 	Date/Time (voir ci-dessous)
+%x 	nb entier (inclu bigint) 	valeur hexadecimale
+
+
+Date/Time format
+%tA 	Full name of the day of the week, e.g. “Sunday“, “Monday“
+%ta 	Abbreviated name of the week day e.g. “Sun“, “Mon“, etc.
+%tB 	Full name of the month e.g. “January“, “February“, etc.
+%tb 	Abbreviated month name e.g. “Jan“, “Feb“, etc.
+%tC 	Century part of year formatted with two digits e.g. “00” through “99”.
+%tc 	Date and time formatted with “%ta %tb %td %tT %tZ %tY” e.g. “Fri Feb 17 07:45:42 PST 2017“
+%tD 	Date formatted as “%tm/%td/%ty“
+%td 	Day of the month formatted with two digits. e.g. “01” to “31“.
+%te 	Day of the month formatted without a leading 0 e.g. “1” to “31”.
+%tF 	ISO 8601 formatted date with “%tY-%tm-%td“.
+%tH 	Hour of the day for the 24-hour clock e.g. “00” to “23“.
+%th 	Same as %tb.
+%tI 	Hour of the day for the 12-hour clock e.g. “01” – “12“.
+%tj 	Day of the year formatted with leading 0s e.g. “001” to “366“.
+%tk 	Hour of the day for the 24 hour clock without a leading 0 e.g. “0” to “23“.
+%tl 	Hour of the day for the 12-hour click without a leading 0 e.g. “1” to “12“.
+%tM 	Minute within the hour formatted a leading 0 e.g. “00” to “59“.
+%tm 	Month formatted with a leading 0 e.g. “01” to “12“.
+%tN 	Nanosecond formatted with 9 digits and leading 0s e.g. “000000000” to “999999999”.
+%tp 	Locale specific “am” or “pm” marker.
+%tQ 	Milliseconds since epoch Jan 1 , 1970 00:00:00 UTC.
+%tR 	Time formatted as 24-hours e.g. “%tH:%tM“.
+%tr 	Time formatted as 12-hours e.g. “%tI:%tM:%tS %Tp“.
+%tS 	Seconds within the minute formatted with 2 digits e.g. “00” to “60”. “60” is required to support leap seconds.
+%ts 	Seconds since the epoch Jan 1, 1970 00:00:00 UTC.
+%tT 	Time formatted as 24-hours e.g. “%tH:%tM:%tS“.
+%tY 	Year formatted with 4 digits e.g. “0000” to “9999“.
+%ty 	Year formatted with 2 digits e.g. “00” to “99“.
+%tZ 	Time zone abbreviation. e.g. “UTC“, “PST“, etc.
+%tz 	Time Zone Offset from GMT e.g. “-0800“.
+
+
+Index de l'argument
+String.format("%2$s", 32, "Hello"); // prints: "Hello"
+
+Taille min
+String.format("|%20d|", 93); // prints: |                  93|
+String.format("|%-20s|", "Hello"); // prints: |Hello               |
+
+nb de caractère max
+String.format("|%.5s|", "Hello World"); // prints: |Hello|
+
+nb chiffre ap virgule max (=> arrondie)
+String.format("|%.5f|", 10,26548568); // prints: |10,27|
+
+
+Nombre
+String.format("|%020d|", 93); // prints: |00000000000000000093|
+String.format("|%+d|', 93); // prints: |+93| => affiche + si nb positif
+String.format("|%+d|', -36); // prints: |-36|
+String.format("|% d|", 93); // prints: | 93| => garde espace pour le signe
+String.format("|% d|", -36); // prints: |-36|
+String.format("|%,d|", 10000000); // prints: |10,000,000|
+
+String.format("|%#o|", 93); // prints: 0135
+String.format("|%#x|", 93); // prints: 0x5d
+String.format("|%#X|", 93); // prints: 0X5D
+
+
+
+
+
